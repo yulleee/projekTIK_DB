@@ -1,0 +1,42 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+    <center>
+        <h3>DAFTAR DOSEN PENDIDIKAN MATEMATIKA UNTIRTA</h3>
+    </center>
+
+    <center>
+
+        <table border="1">
+            <tr>
+                <th>NIP</th>
+                <th>NAMA</th>
+                <th>JABATAN</th>
+                <th>EMAIL</th>
+                <th>FOTO</th>
+            </tr>
+    
+        {% for dosen in lecturer %}
+        
+            <tr>
+                <td>{{dosen.nip}}</td>
+                <td>{{dosen.nama}}</td>
+                <td>{{dosen.jabatan}}</td>
+                <td>{{dosen.email}}</td>
+                <td>
+                    {% if dosen.foto %} 
+                    <img src="{{dosen.foto.url}}" width="100px">
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+    </center>
+    
+   
+
+
+{% endblock %}

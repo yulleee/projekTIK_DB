@@ -1,0 +1,42 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+    <center>
+        <h3>DAFTAR MAHASISWA PENDIDIKAN MATEMATIKA</h3>
+        <h4>KELAS 3A</h4>
+    </center>
+    <table border="1">
+        <tr>
+            <th>NIM</th>
+            <th>NAMA</th>
+            <th>TTL</th>
+            <th>EMAIL</th>
+            <th>FAKULTAS</th>
+            <th>PRODI</th>
+            <th>ALAMAT</th>
+            <th>FOTO</th>
+        </tr>
+
+    {% for mahasiswa in student %}
+    
+        <tr>
+            <td>{{mahasiswa.nim}}</td>
+            <td>{{mahasiswa.nama}}</td>
+            <td>{{mahasiswa.ttl}}</td>
+            <td>{{mahasiswa.email}}</td>
+            <td>{{mahasiswa.fakultas}}</td>
+            <td>{{mahasiswa.prodi}}</td>
+            <td>{{mahasiswa.alamat}}</td>
+            <td>
+                {% if mahasiswa.foto %} 
+                <img src="{{mahasiswa.foto.url}}" width="100px">
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+   
+
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+    <center>
+        <h3>DAFTAR TENAGA PENDIDIK UNTIRTA</h3>
+    </center>
+
+
+    <center>
+
+        <table border="1">
+            <tr>
+                <th>NO</th>
+                <th>NIP</th>
+                <th>NAMA</th>
+                <th>JABATAN</th>
+            </tr>
+    
+        {% for tendik in staff %}
+        
+            <tr>
+                <td>{{tendik.no}}</td>
+                <td>{{tendik.nip}}</td>
+                <td>{{tendik.nama}}</td>
+                <td>{{tendik.jabatan}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </center>
+    
+   
+
+
+{% endblock %}
