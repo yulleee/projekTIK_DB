@@ -11,6 +11,8 @@ from django.contrib import messages
 def hapus_dosen(request, id_dosen):
     dosen = Dosen.objects.filter(id=id_dosen)
     dosen.delete()
+    if request.method == "POST":
+        dosen.hapus()
 
     return redirect('/dosen/')
 

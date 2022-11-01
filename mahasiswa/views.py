@@ -1,4 +1,3 @@
-from re import template
 from django.shortcuts import render, redirect
 from mahasiswa.models import Mahasiswa
 from mahasiswa.forms import FormMahasiswa
@@ -9,6 +8,8 @@ from django.contrib import messages
 def hapus_mahasiswa(request, id_mahasiswa):
     mahasiswa = Mahasiswa.objects.filter(id=id_mahasiswa)
     mahasiswa.delete()
+    if request.method == "POST":
+        mahasiswa.hapus()
 
     return redirect('/mahasiswa/')
 

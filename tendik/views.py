@@ -8,8 +8,10 @@ from django.contrib import messages
 def hapus_tendik(request, id_tendik):
     tendik = Tendik.objects.filter(id=id_tendik)
     tendik.delete()
+    if request.method == "POST":
+        tendik.hapus()
 
-    return redirect('tendik')
+    return redirect('/tendik/')
 
 
 def ubah_tendik(request, id_tendik):
