@@ -6,31 +6,68 @@
         <h3>DAFTAR TENAGA PENDIDIK UNTIRTA</h3>
     </center>
 
+    <center>
+        <h5>
+            <a href="{% url 'tambah_tendik' %}">Tambah Tenaga Pendidik</a>
+        </h5>
+    </center>
 
     <center>
 
-        <table border="1">
+        <table class="table1">
             <tr>
                 <th>NO</th>
                 <th>NIP</th>
                 <th>NAMA</th>
                 <th>JABATAN</th>
+                <th>ACTION</th>
             </tr>
     
         {% for tendik in staff %}
         
             <tr>
                 <td>{{tendik.no}}</td>
-                <td>{{tendik.nip}}</td>
+                <td><a href="{% url 'ubah_tendik' tendik.id %}">{{tendik.nip}}</td>
                 <td>{{tendik.nama}}</td>
                 <td>{{tendik.jabatan}}</td>
+                <td>
+                    <a href="{% url 'hapus_tendik' tendik.id %}" class="btn btn-danger">Hapus</a>
+                </td>
             </tr>
             {% endfor %}
         </table>
 
     </center>
-    
-   
+
+
+    <style>
+        .table1 {
+        font-family: sans-serif;
+        color: rgb(0, 0, 0) ;
+        border-collapse: collapse;
+        width: 50%;
+        border: 1px solid rgba(163, 110, 163, 0.43) ;
+    }
+     
+    .table1 tr th{
+        background: rgba(163, 110, 163, 0.43) ;
+        color: rgb(0, 0, 0);
+        font-weight: normal;
+    }
+     
+    .table1, th, td {
+        padding: 8px 20px;
+        text-align: center;
+    }
+     
+    .table1 tr:hover {
+        background-color: rgba(245, 227, 245, 0.43) ;
+    }
+     
+    .table1 tr:nth-child(even) {
+        background-color: rgba(163, 110, 163, 0.43) ;
+    }
+    </style>
 
 
 {% endblock %}
